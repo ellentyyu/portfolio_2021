@@ -1,0 +1,445 @@
+.bg-cover{
+  background-size: cover;
+  background-position: center center;
+}
+
+
+.text-hide{
+  height: 0px;
+  text-indent: 101%;
+  overflow: hidden;
+  white-space: nowrap;
+}
+//bs的寫法 用在圖片的文字上
+.text-hide-img{
+  font-size: 0;
+  line-height: 0;
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
+}
+
+.lh-15{
+  line-height: 1.5;
+}
+.ls-1{
+  letter-spacing: 1px;
+}
+.fade-in-up{
+  transform: translateY(30px);
+  opacity: 0;
+  transition: all .8s;
+  &.fade-in{
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+.fade-in-left{
+  transform: translateX(10px);
+  opacity: 0;
+  transition: all .8s;
+  &.fade-in{
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+.shade-layer{
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.bar-primary{
+  position: relative;
+  &::after{
+    position: absolute;
+    content: '';
+    background-color: $primary;
+    width: 50px;
+    height: 4px;
+  }
+}
+.bar-white{
+  position: relative;
+  &::after{
+    position: absolute;
+    content: '';
+    background-color: white;
+    width: 50px;
+    height: 4px;
+  }
+}
+.bar-ultigray{
+  position: relative;
+  &::after{
+    position: absolute;
+    content: '';
+    background-color: #939597;
+    width: 50px;
+    height: 4px;
+  }
+}
+.bar-dark{
+  position: relative;
+  &::after{
+    position: absolute;
+    content: '';
+    background-color: #494a4b;
+    width: 50px;
+    height: 4px;
+  }
+}
+
+.sec-title{
+  margin-bottom: 8px;
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+}
+.sub-title{
+  margin-bottom: 8px;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+}
+// index
+body{
+  font-family: 'Montserrat', sans-serif;
+}
+.navbar{
+  background-color: rgba($color: rgb(0, 0, 0), $alpha: 0);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 99;
+  transition: all .3s;
+  .container-fluid{
+    display: flex;
+    align-items: center;
+  }
+  .logo{
+    padding: 0 16px;
+    font-size: 30px;
+    font-weight: 800;
+    color: $primary;
+  }
+  .menu{
+    display: flex;
+    .menu-link{
+      color: #616166;
+      padding: 12px 16px;
+      transition: all .3s;
+      &.active{
+        color: white;
+      }
+      &:hover{
+        color: white;
+      }
+    }
+  }
+  &.scrolling{
+    background-color: rgba($color: #3a3b3b, $alpha: .9);
+    .menu-link{
+      color: #a2a2a8;
+    }
+  }
+}
+// banner
+.banner{
+  .bg-cover{
+    background-attachment: fixed;
+  }
+
+  // 漸層背景 如用.shade-layer可調淡成0.1
+  // .bg-banner{
+  //   background-size: 600%;
+  //   background-position: 0 0;
+  //   box-shadow: inset 0 0 5em rgba(0,0,0,.5);
+  //     /* Animation */
+  //   animation-duration: 15s;
+  //   animation-iteration-count: infinite;
+  //   animation-name: gradients;
+  // }
+  // @keyframes gradients {
+  //   0%   {background-position: 0 0;}
+  //   25% {background-position: 50% 0;}
+  //   50% {background-position: 90% 0;}
+  //   60% {background-position: 60%;}
+  //   75% {background-position: 40%;}
+  //   100%  {background-position: 0 0;}
+  // }
+  .shade-layer{
+    background-color: rgba($color: #686868, $alpha: 0.2);
+    z-index: 2;
+  }
+  .banner-text{
+    text-align: end;
+    font-family: $font-primary;
+    margin-top: 150px;
+    padding: 0px 50px;
+    @include media-breakpoint-up(sm) {
+      padding: 0px 80px;
+    }
+    @include media-breakpoint-up(md) {
+      margin-top: 170px;
+    }
+    .bar-primary::after{
+      right: 0;
+      bottom: 0;
+    }
+    .banner-text-title{
+      margin-bottom: 24px;
+      color: white;
+      font-size: 23px;
+      line-height: 1;
+      @include media-breakpoint-up(ss) {
+        font-size: 36px;
+      }
+      @include media-breakpoint-up(sm) {
+        font-size: 46px;
+      }
+      @include media-breakpoint-up(md) {
+        font-size: 50px;
+      }
+      @include media-breakpoint-up(lg) {
+        font-size: 66px;
+      }
+      span{
+        font-weight: 700;
+        font-size: 28px;
+        @include media-breakpoint-up(ss) {
+          font-size: 38px;
+        }
+        @include media-breakpoint-up(sm) {
+          font-size: 50px;
+        }
+        @include media-breakpoint-up(md) {
+          font-size: 54px;
+        }
+        @include media-breakpoint-up(lg) {
+          font-size: 70px;
+        }
+      }
+    }
+    .banner-text-content{
+      margin-top: 48px;
+      color: white;
+      letter-spacing: 1px;
+      font-size: 16px;
+      @include media-breakpoint-up(md) {
+        font-size: 18px;
+      }
+      span{
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+// scroll滑鼠
+#scroll span {
+  position: absolute;
+  top: 80px;
+  right: 0px;
+  width: 30px;
+  height: 50px;
+  margin-left: -15px;
+  border: 2px solid #fff;
+  border-radius: 50px;
+  box-sizing: border-box;
+  transform: scale(0.8);
+}
+#scroll span::before {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  content: '';
+  width: 6px;
+  height: 6px;
+  margin-left: -3px;
+  background-color: #fff;
+  border-radius: 100%;
+  -webkit-animation: scroll-ani 2s infinite;
+  animation: scroll-ani 2s infinite;
+  box-sizing: border-box;
+}
+@-webkit-keyframes scroll-ani {
+  0% {
+    -webkit-transform: translate(0, 0);
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+  }
+  80% {
+    -webkit-transform: translate(0, 20px);
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes scroll-ani {
+  0% {
+    transform: translate(0, 0);
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+  }
+  80% {
+    transform: translate(0, 20px);
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+
+// about
+.about{
+  &.bg-primary{
+    background-color: rgba($color: $primary, $alpha: .7) !important;
+  }
+  .bar-dark{
+    &::after{
+      margin-left: 6px;
+    }
+  }
+  .row{
+    margin-top: 40px;
+  }
+  .link-text-light{
+    color: #faed92;
+  }
+}
+// skills
+.skills{
+  .row{
+     .icon-wrap{
+        margin-bottom: 22px;
+        display: inline-block;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        background-color: rgba($color: $primary, $alpha: .7);
+        transition: all .8s;
+        @include media-breakpoint-up(md) {
+          margin-bottom: 36px;
+        }
+     }
+    .skills-item{
+      &:hover{
+       .icon-lg{
+         color: $primary;
+       }
+        .icon-wrap{
+          transform: scale(1.6, 1.6);
+          background-color: transparent;
+        }
+      }
+
+    }
+    .icon-lg{
+      display: block;
+      font-size: 62px;
+      line-height: 100px;
+      color: white;
+      transition: all .5s;
+      &.fa-code{
+        font-size: 50px;
+      }
+      &.fa-js{
+        font-size: 58px;
+      }
+    }
+    .skills-title{
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+    .skills-content{
+      color: #85898d;
+      .skill{
+        display: inline-block;
+        margin-bottom: 4px;
+      }
+    }
+    .diamond{
+      margin-right: 6px;
+      margin-left: 6px;
+      vertical-align: middle;
+      font-size: 10px;
+    }
+  }
+}
+
+// work
+.work{
+  background-color: #eaecf0;
+  .work-item{
+    margin-bottom: 90px;
+  }
+  .work-img-link{
+    border: transparent 4px solid;
+    transition: all .3s;
+    overflow: hidden;
+    &:hover{
+      border: $primary 4px solid;
+    }
+    .work-img{
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+      object-position: left center;
+      transition: all .3s;
+    }
+  }
+  .work-des{
+    border: transparent 4px solid;
+  }
+  .badge{
+    margin: 0px 4px 4px 0px;
+  }
+  .designer-link{
+    display: inline-block;
+    padding: 4px 8px;
+    font-weight: bold;
+    color: $dark;
+    &:hover{
+      color: black;
+    }
+  }
+  .btn-outline-dark{
+    font-size: 14px;
+    padding: 4px 8px;
+    @include media-breakpoint-up(sm) {
+      font-size: 16px;
+      padding: 0.375rem 0.75rem;
+    }
+  }
+  .writing-link{
+    padding: 12px;
+    text-align: center;
+    font-weight: bold;
+    color: $dark;
+    &:hover{
+      color: black;
+    }
+  }
+}
+
+// contact
+.contact{
+  .row{
+    margin-top: 36px;
+  }
+}
+// footer
+.footer{
+  background-color: #eaecf0;
+}

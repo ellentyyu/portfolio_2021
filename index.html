@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>F2E Portfolio</title>
+
+  <link rel="shortcut icon" href="./images/clock-solid.svg">
+  <meta name='description' content="front-end portfolio" />
+  <meta name="keywords" content="portfolio, front-end, web development">
+  <meta property="og:title" content="front-end portfolio" />
+  <meta property="og:description" content="front-end portfolio">
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="FB上的網址" />
+  <meta property="og:image" content="FB的圖片" />
+  <!-- <link rel="apple-touch-icon" href=""> -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css' /> -->
+  <script src="https://kit.fontawesome.com/38aa01497b.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="stylesheets/all.css">
+
+</head>
+
+<body>
+  <div id="app">
+    <header>
+      <nav class="navbar" :class="{'scrolling':isScroll}">
+        <div class="container-fluid px-5">
+          <a href="#" class="logo">E</a>
+          <ul class="menu">
+            <li>
+              <a href="#about" class="menu-link" :class="{'active':currSec==='about'}" @click.prevent="scrollTo('about')">about</a>
+            </li>
+            <li>
+              <a href="#skills" class="menu-link" :class="{'active':currSec==='skills'}" @click.prevent="scrollTo('skills')">skills</a>
+            </li>
+            <li>
+              <a href="#work" class="menu-link" :class="{'active':currSec==='work'}" @click.prevent="scrollTo('work')">work</a>
+            </li>
+            <li>
+              <a href="#contact" class="menu-link" :class="{'active':currSec==='contact'}" @click.prevent="scrollTo('contact')">contact</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <section class="banner position-relative vh-100">
+      <!-- shade-layer 改成.1 -->
+      <!-- <div class="bg-banner h-100" style="background-image:linear-gradient(to right, #ffea5e, #f0e59d, #939597, #494949);">
+      </div> -->
+      <div class="bg-cover h-100" style="background-image:url(./images/banner_lg.jpg); background-position: 50% 100%;">
+      </div>
+      <div class="shade-layer">
+        <div class="banner-text">
+          <h1 class="banner-text-title">Hi, my<br>name is <span>Ellen</span>.</h1>
+          <div class="bar-primary"></div>
+          <p class="banner-text-content d-none d-md-block">I'm a <span>front-end web developer</span> who loves <br> creating accessible websites with awesome user experiences.</p>
+          <p class="banner-text-content d-md-none">I'm a <span>front-end web developer</span> who loves <br class="d-none d-sm-block"> creating for the web.</p>
+          <div id="scroll" class="position-relative d-none d-md-block">
+            <span></span>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="about bg-primary text-dark py-8" id="about" ref="about">
+      <div class="container-fluid px-5">
+        <h2 class="sec-title">ABOUT</h2>
+        <div class="bar-dark d-flex justify-content-center"></div>
+        <div class="row justify-content-center">
+          <div class="col-12 col-md-10 col-lg-9">
+            <div class="mb-5 text-center">
+              <p class="ls-1 lh-15 mb-4">Hello, 我是Ellen! 過去從事口筆譯及英文教學五年，擅長溝通、注重細節、熱愛學習與分享新知。因為工作開啟前端新世界的大門，享受以不同技術解決更多問題，並決定轉換跑道。目前主要使用 Vue.js 開發，開發之餘也持續培養咖啡、插畫、寫作等新技能。期待在前端世界面對各種挑戰，做出更多設計、效能、體驗並重的成果。</p>
+              <p class="ls-1 lh-15 d-none d-sm-block">
+              An interpreter turned developer, I enjoy taking practical and innovative approaches to real-world problems. When coding, I focus on details that bring good design to life and optimize user experiences.
+              Beyond building things in the virtual world, I also enjoy other hands-on hobbies - coffee brewing, baking, and illustraing.
+              </p>
+            </div>
+            <div class="text-center">
+              <a href="#" class="btn btn-dark link-text-light rounded-pill px-3 py-2 ms-2">my resume
+                <i class="ms-2 fa-solid fa-arrow-up-right-from-square"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="skills py-8" id="skills" ref="skills">
+      <div class="container-fluid px-5">
+        <h2 class="sec-title">SKILLS</h2>
+        <div class="bar-primary d-flex justify-content-center"></div>
+        <div class="row justify-content-center mt-6">
+          <div class="col-12 col-sm-6 col-md-3 mb-5 mb-md-0">
+            <div class="text-center skills-item">
+              <div class="icon-wrap">
+                <i class="icon-lg fas fa-code"></i>
+              </div>
+              <h2 class="skills-title">Web Layout</h2>
+              <p class="skills-content">
+                <span class="mb-1 me-2 skill"><span class="diamond">◆</span>HTML5 / CSS3</span>
+                <span class="mb-1 me-2 skill"><span class="diamond">◆</span>SASS</span><br>
+                <span class="mb-1 me-2 skill"><span class="diamond">◆</span>響應式設計</span>
+                <span class="mb-1 me-2 skill"><span class="diamond">◆</span>Bootstrap 5</span>
+              </p>
+            </div>
+          </div>
+          <div class="col-12 col-sm-6 col-md-3 mb-5 mb-md-0">
+            <div class="text-center skills-item">
+              <div class="icon-wrap">
+                <i class="icon-lg fab fa-js"></i>
+              </div>
+              <h2 class="skills-title">JavaScript</h2>
+              <p class="skills-content">
+                <span class="mb-1 me-2 skill"><span class="diamond">◆</span>ES6</span>
+                <span class="mb-1 me-2 skill"><span class="diamond">◆</span>jQuery 互動效果</span><br>
+                <span class="mb-1 me-2 skill"><span class="diamond">◆</span>RESTful API</span>
+                <span class="mb-1 me-2 skill"><span class="diamond">◆</span>JS 套件應用</span><br>
+                <span class="mb-1 me-2 skill"><span class="diamond">◆</span>Node.js</span>
+              </p>
+            </div>
+          </div>
+          <div class="col-12 col-sm-6 col-md-3 mb-5 mb-md-0">
+            <div class="text-center skills-item">
+              <div class="icon-wrap">
+                <i class="icon-lg fab fa-vuejs"></i>
+              </div>
+              <h2 class="skills-title">Vue.js 3</h2>
+              <p class="skills-content">
+                <span class="mb-1 me-2 skill"><span class="diamond">◆</span>Composition API</span>
+                <span class="mb-1 me-2 skill"><span class="diamond">◆</span>Vue CLI / Vue Router 專案開發</span><br>
+                <span class="mb-1 me-2 skill"><span class="diamond">◆</span>Vuex / Pinia 狀態管理</span>
+              </p>
+            </div>
+          </div>
+          <div class="col-12 col-sm-6 col-md-3 mb-5 mb-md-0">
+            <div class="text-center skills-item">
+              <div class="icon-wrap">
+                <i class="icon-lg fab fa-git-alt"></i>
+              </div>
+              <h2 class="skills-title">打包與版本控制</h2>
+              <p class="skills-content">
+                <span class="mb-1 me-2 skill"><span class="diamond">◆</span>Webpack</span>
+                <span class="mb-1 me-2 skill"><span class="diamond">◆</span>Parcel.js</span><br>
+                <span class="mb-1 me-2 skill"><span class="diamond">◆</span>Git</span>
+                <span class="mb-1 me-2 skill"><span class="diamond">◆</span>GitHub</span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="work py-8 text-dark" id="work" ref="work">
+      <div class="container-fluid px-5">
+        <h2 class="sec-title">WORK</h2>
+        <div class="bar-dark d-flex justify-content-center"></div>
+        <div>
+          <h3 class="sub-title mt-6 mb-5">FEATURED PROJECTS</h3>
+          <div class="row gx-5 justify-content-center work-item">
+            <div class="col-12 col-md-5 mb-4 mb-md-0">
+              <a href="https://ellentyyu.github.io/F2E_taiwan_travel_vue/" class="work-img-link" target="_blank">
+                <img class="work-img" src="./images/taiwan_travel_page.png" alt="taiwan travel site picture">
+              </a>
+            </div>
+            <div class="col-12 col-md-5">
+              <div class="d-flex flex-column h-100 work-des">
+                <h2 class="fs-4 fw-bold mb-3">台灣旅遊景點導覽</h2>
+                <p class="mb-3 mb-md-2 ls-1">使用 Composition API 模式撰寫，串接交通部 TDX 平台旅遊景點資料，提供台灣旅遊景點、餐廳、旅宿資訊查詢。</p>
+                <p class="mb-2 mb-md-auto">設計稿 - F2E投稿設計師<a href="https://2021.thef2e.com/users/6296432819610583154/" class="designer-link" target="_blank">Vum</a></p>
+                <div class="mb-2">
+                  <span class="badge rounded-pill bg-primary">Composition API</span>
+                  <span class="badge rounded-pill bg-primary">Axios</span>
+                  <span class="badge rounded-pill bg-primary">Bootstrap</span>
+                  <span class="badge rounded-pill bg-primary">Swiper</span>
+                  <span class="badge rounded-pill bg-primary">RWD</span>
+                </div>
+                <div>
+                  <a href="https://ellentyyu.github.io/F2E_taiwan_travel_vue/" class="btn btn-outline-dark rounded-pill me-2" target="_blank">view demo</a>
+                  <a href="https://github.com/ellentyyu/F2E_taiwan_travel_vue" class="btn btn-outline-dark rounded-pill me-2" target="_blank">view github</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row gx-5 justify-content-center work-item">
+            <div class="col-12 col-md-5 order-0 order-md-1 mb-4 mb-md-0">
+              <a href="https://ellentyyu.github.io/e_commerce_vue/#/" class="work-img-link" target="_blank">
+                <img class="work-img" src="./images/ecommerce_single.png" alt="ecommerce site picture">
+              </a>
+            </div>
+            <div class="col-12 col-md-5 order-1 order-md-0">
+              <div class="d-flex flex-column h-100 work-des">
+                <h2 class="fs-4 fw-bold mb-3">Vue.js 咖啡電商網站</h2>
+                <p class="mb-3 mb-md-auto ls-1">
+                  專案包含電商前、後台介面：前台具備商品介紹、表單驗證、使用者回饋、完整購物車下單功能。後台提供商品、優惠券、訂單管理功能。
+                </p>
+                <div class="mb-2">
+                  <span class="badge rounded-pill bg-primary">Vue CLI</span>
+                  <span class="badge rounded-pill bg-primary">Vue Router</span>
+                  <span class="badge rounded-pill bg-primary">Vuex</span>
+                  <span class="badge rounded-pill bg-primary">VeeValidate</span>
+                  <span class="badge rounded-pill bg-primary">Axios</span>
+                  <span class="badge rounded-pill bg-primary">RWD</span>
+                </div>
+                <div>
+                  <a href="https://ellentyyu.github.io/e_commerce_vue/#/" class="btn btn-outline-dark rounded-pill me-2" target="_blank">view demo</a>
+                  <a href="https://github.com/ellentyyu/e_commerce_vue" class="btn btn-outline-dark rounded-pill me-2" target="_blank">view github</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row gx-5 justify-content-center work-item">
+            <div class="col-12 col-md-5 mb-4 mb-md-0">
+              <a href="https://ellentyyu.github.io/F2E_maskmap_parcel/" class="work-img-link" target="_blank">
+                <img class="work-img" src="./images/maskmap.png" alt="mask map site picture">
+              </a>
+            </div>
+            <div class="col-12 col-md-5">
+              <div class="d-flex flex-column h-100 work-des">
+                <h2 class="fs-4 fw-bold mb-3">Leaflet + OSM 口罩地圖</h2>
+                <p class="mb-3 mb-md-2 ls-1">結合 OpenStreetMap 圖資與 Leaftet 套件，呈現全台藥局口罩庫存資訊。地圖支援使用者即時定位與地標群聚，也可以使用地區或地址進行搜尋。</p>
+                <p class="mb-2 mb-md-auto">設計稿 - F2E投稿設計師<a href="https://challenge.thef2e.com/user/2259" class="designer-link" target="_blank">Wendy</a></p>
+                <div class="mb-2">
+                  <span class="badge rounded-pill bg-primary">OpenStreetMap</span>
+                  <span class="badge rounded-pill bg-primary">Leaflet</span>
+                  <span class="badge rounded-pill bg-primary">Leaflet plugins</span>
+                  <span class="badge rounded-pill bg-primary">Parcel.js</span>
+                  <span class="badge rounded-pill bg-primary">RWD</span>
+                </div>
+                <div>
+                  <a href="https://ellentyyu.github.io/F2E_maskmap_parcel/" class="btn btn-outline-dark rounded-pill me-2" target="_blank">view demo</a>
+                  <a href="https://github.com/ellentyyu/F2E_maskmap_parcel" class="btn btn-outline-dark rounded-pill me-2" target="_blank">view github</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row gx-5 justify-content-center work-item">
+            <div class="col-12 col-md-5 mb-4 mb-md-0 order-0 order-md-1">
+              <a href="https://ellentyyu.github.io/F2E_tomato_clock_vue/" class="work-img-link" target="_blank">
+                <img class="work-img" src="./images/tomato_clock.png" alt="tomato clock site picture">
+              </a>
+            </div>
+            <div class="col-12 col-md-5 order-1 order-md-0">
+              <div class="d-flex flex-column h-100 work-des">
+                <h2 class="fs-4 fw-bold mb-3">Chart.js + 網頁版番茄鐘</h2>
+                <p class="mb-3 mb-md-2 ls-1">以日期建立代辦事項，並結合 Chart.js 呈現統計圖表，增進任務追蹤與管理。提供多種工作間距選擇、倒數鐘面動畫效果及鬧鈴提示功能。</p>
+                <p class="mb-2 mb-md-auto">設計稿 - F2E投稿設計師<a href="https://challenge.thef2e.com/user/1878?schedule=2784#works-2784" class="designer-link" target="_blank">Polina</a></p>
+                <div class="mb-2">
+                  <span class="badge rounded-pill bg-primary">Vue.js</span>
+                  <span class="badge rounded-pill bg-primary">Chart.js</span>
+                  <span class="badge rounded-pill bg-primary">CSS / SVG 動畫</span>
+                  <span class="badge rounded-pill bg-primary">SCSS</span>
+                </div>
+                <div>
+                  <a href="https://ellentyyu.github.io/F2E_tomato_clock_vue/" class="btn btn-outline-dark rounded-pill me-2" target="_blank">view demo</a>
+                  <a href="https://github.com/ellentyyu/F2E_tomato_clock_vue" class="btn btn-outline-dark rounded-pill me-2" target="_blank">view github</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <h3 class="sub-title mb-4">WRITING</h3>
+          <div class="row justify-content-center text-center">
+            <div class="col-12 col-md-10 col-lg-9">
+              <a href="https://ithelp.ithome.com.tw/users/20141051/ironman/4527" class="writing-link fs-5 mb-3" target="_blank">2021年 iThome 鐵人賽完賽作品 - 30 天不怕演算法
+                <i class="fa-solid fa-arrow-up-right-from-square ms-2"></i>
+              </a>
+              <p class="ls-1 lh-15 mb-2">2021 年轉職期間以主題「30 天不怕演算法：白話文版」參加第 13 屆 iThome 鐵人賽，並順利完賽。
+              </p>
+              <p class="ls-1 lh-15 mb-2">
+                以演算法為題是因為修完一門計算機概論課程後，發現演算法的概念沒有想像中艱深難懂。於是挑戰自己更深入了解演算法的設計、應用或實作，並在整理後分享給也想要認識這門知識的人。
+              </p>
+              <p class="ls-1 lh-15">
+                系列中包含 30 篇文章，涵蓋演算法概念、搜尋與排序演算法、圖論、資料結構、貪婪演算法、動態規劃等主題。
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="contact py-8 text-dark" id="contact" ref="contact">
+      <div class="container-fluid px-5">
+        <h2 class="sec-title">CONTACT</h2>
+        <div class="bar-dark d-flex justify-content-center"></div>
+        <div class="row justify-content-center">
+          <div class="col-12 col-md-10 col-lg-9">
+            <div class="mb-5 text-center">
+              <p class="ls-1 mb-3">我目前正在積極尋找台北的前端工程師全職工作，也歡迎討論外縣市工作、遠端工作或任何專案合作的機會！</p>
+              <p class="ls-1 d-none d-sm-block">
+                I'm currently looking for full-time opportunities in Taipei, Taiwan. Whether you have a question or want to see if we can build something amazing together, I'd love to hear from you!
+              </p>
+            </div>
+            <div class="text-center">
+              <a href="mailto:ellentyyu@gmail.com" class="btn btn-dark text-white rounded-pill px-3 py-2 ms-2">email me
+                <i class="fa-solid fa-paper-plane ms-2"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer class="footer bg-dark">
+      <div class="bg-cover py-4">
+        <p class="text-white text-center fs-s">Designed and Built by Ellen Yu</p>
+      </div>
+    </footer>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://unpkg.com/vue@next"></script>
+  <script>
+    const app = Vue.createApp({
+      data() {
+        return {
+          isScroll: false,
+          currSec: ''
+        }
+      },
+      created() {
+        window.addEventListener("scroll", this.handleScroll);
+      },
+      methods: {
+        handleScroll() {
+          this.isScroll = window.scrollY > 50 ? true : false;
+          if(this.$refs.about) {
+            if(window.scrollY <= this.$refs.about.offsetTop - 150) {
+              this.currSec = '';
+            }
+            if(window.scrollY > this.$refs.about.offsetTop - 150 && window.scrollY <= this.$refs.about.offsetTop + this.$refs.about.clientHeight - 150) {
+              this.currSec = 'about';
+            }else if(window.scrollY > this.$refs.skills.offsetTop - 150 && window.scrollY <= this.$refs.skills.offsetTop + this.$refs.skills.clientHeight - 150) {
+              this.currSec = 'skills';
+            }else if(window.scrollY > this.$refs.work.offsetTop - 150 && window.scrollY <= this.$refs.work.offsetTop + this.$refs.work.clientHeight - 180) {
+              this.currSec = 'work';
+            }else if(window.scrollY > this.$refs.contact.offsetTop - 180 && window.scrollY <= this.$refs.contact.offsetTop + this.$refs.contact.clientHeight - 150) {
+              this.currSec = 'contact';
+            }
+          }
+        },
+        scrollTo(section) {
+          console.log(section, this.$refs[section].offsetTop);
+          let position = this.$refs[section].offsetTop - 85;
+            window.scrollTo({
+              top: position,
+              left: 0,
+              behavior: 'smooth'
+            });
+        }
+      },
+    });
+    app.mount('#app');
+  </script>
+</body>
+
+</html>
